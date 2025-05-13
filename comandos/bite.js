@@ -1,0 +1,50 @@
+const gifs = ["gifs/bite.gif", "gifs/bite2.gif", "gifs/bite3.gif", "gifs/bite4.gif", "gifs/bite5.gif", "gifs/bite6.gif", "gifs/bite7.gif"];
+const cooldowns = new Map(); // fuera del export para mantener entre llamadas
+const COOLDOWN_TIME = 5000; // en milisegundos (5 segundos por ejemplo)
+
+
+
+module.exports = {
+  name: "bite",
+  execute: async (ctx) => {
+
+	const autor = ctx.from.first_name;
+	const reply = ctx.message.reply_to_message;
+	const destinatario = reply ? reply.from.first_name : null;
+
+	const randomGif = gifs[Math.floor(Math.random() * gifs.length)];
+
+	if (!destinatario) {
+	  return ctx.reply("Debes responder a un mensaje o mencionar a alguien.");
+	}
+
+	if (reply && reply.from.id === ctx.botInfo.id) {
+	  return ctx.reply("No puedes hacer eso conmigo, soy solo un bot...");
+	}
+
+
+	const userId = ctx.from.id;
+	const now = Date.now();
+	
+	if (cooldowns.has(userId)) {
+	  const expiration = cooldowns.get(userId);
+	  if (now < expiration) {
+	    const timeLeft = ((expiration - now) / 1000).toFixed(1);
+	    return ctx.reply(`Espera ${timeLeft} segundos, a ${destinatario} le doleran las mordidas`);
+	  }
+	}
+
+
+	await ctx.replyWithAnimation(
+	  { source: randomGif },
+	  {
+	    caption: `*${autor}* mordió a *${destinatario}*`,
+	    parse_mode: "Markdown"
+	  }
+	);
+	
+	cooldowns.set(userId, now + COOLDOWN_TIME)
+
+    
+  }
+}

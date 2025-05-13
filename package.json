@@ -1,0 +1,26 @@
+{
+  "name": "tg",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "**Naori Bot Telegram**",
+  "dependencies": {
+    "axios": "^1.9.0",
+    "express": "^5.1.0",
+    "telegraf": "^4.16.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Darksi24/Naori-bot.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Darksi24/Naori-bot/issues"
+  },
+  "homepage": "https://github.com/Darksi24/Naori-bot#readme",
+  "devDependencies": {}
+}
