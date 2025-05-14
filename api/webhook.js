@@ -3,7 +3,7 @@ const bot = require("../telegram");
 
 module.exports = async (req, res) => {
   try {
-    await bot.telegram.setWebhook("https://TU_PROYECTO.vercel.app/api/webhook");
+    await bot.telegram.setWebhook("https://naori-best.vercel.app/api/webhook");
     return res.status(200).send("Webhook configurado 👍");
   } catch (err) {
     console.error("Error configurando webhook:", err);
