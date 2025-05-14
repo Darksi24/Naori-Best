@@ -1,15 +1,14 @@
-import telegramBot from "../telegram.js";
+const bot = require("../../telegram");
 
-export default async function handler(req, res) {
-  if (req.method !== "POST") {
-    return res.status(405).send("Use POST");
-  }
+module.exports = async (req, res) => {
   try {
-    // Telegram envía JSON con la actualización
-    await telegramBot.handleUpdate(req.body);
-    return res.status(200).send("OK");
+    console.log("Update recibido:", req.body);  // <-- Agrega esto para verificar
+    await bot.handleUpdate(req.body);
+    res.status(200).send("OK");
   } catch (err) {
     console.error("Error en webhook:", err);
-    return res.status(500).send("Error interno");
+    res.status(500).send("Error en webhook");
   }
-}
+};
+
+console.log("BODY:", JSON.stringify(req.body, null, 2));
