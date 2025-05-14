@@ -14,7 +14,7 @@ module.exports = {
 
         if (!destinatario) {
             return ctx.reply("Debes responder a un mensaje de alguien.");
-        }}
+        }
 
 
 
