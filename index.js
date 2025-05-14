@@ -1,22 +1,32 @@
-import express from 'express';
-import bot from './telegram.js';
+const express = require("express");
+const fs = require("fs");
+const path = require("path");
+const bot = require("./telegram");
 
 const app = express();
-app.use(express.json());
+const PORT = process.env.PORT || 3000;
 
-app.post('/webhook', (req, res) => {
-  bot.handleUpdate(req.body, res);
+// Middleware de prueba para que Vercel tenga un endpoint
+app.get("/", (req, res) => {
+  res.send("Bot activo y funcionando");
 });
 
-app.get('/', async (req, res) => {
-  // Solo se ejecuta una vez cuando se accede
-  const webhookUrl = 'https://naori-best.vercel.app/webhook';
-  try {
-    await bot.telegram.setWebhook(webhookUrl);
-    res.send('Bot activo y webhook configurado.');
-  } catch (err) {
-    res.status(500).send('Error configurando webhook: ' + err.message);
+// Cargar comandos desde la carpeta "comandos"
+const comandosPath = path.join(__dirname, "comandos");
+fs.readdirSync(comandosPath).forEach(file => {
+  const cmd = require(path.join(comandosPath, file));
+  if (cmd.name && cmd.execute) {
+    bot.command(cmd.name, ctx => cmd.execute(ctx));
+    console.log(`Comando cargado: ${cmd.name}`);
   }
 });
 
-export default app;
+// Lanzar el bot
+bot.launch()
+  .then(() => console.log("Bot iniciado correctamente"))
+  .catch(err => console.error("Error al iniciar el bot:", err));
+
+// Iniciar el servidor (necesario para Vercel)
+app.listen(PORT, () => {
+  console.log(`Servidor escuchando en http://localhost:${PORT}`);
+});
