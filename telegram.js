@@ -4,6 +4,14 @@ const fs = require("fs");
 // Reemplaza con tu token real
 const bot = new Telegraf("7442347920:AAG7dHEtlVrqHEq-SJaPo8qsWilJbmsk7aM");
 
+const comandos = path.join(__dirname, "comandos");
+fs.readdirSync(comandos).forEach(file => {
+  const cmd = require(path.join(comandos, file));
+  if (cmd.name && cmd.execute) {
+    bot.command(cmd.name, ctx => cmd.execute(ctx));
+  }
+});
+
 // Evento: cuando alguien se une al grupo
 bot.on("new_chat_members", async (ctx) => {
   for (const user of ctx.message.new_chat_members) {
