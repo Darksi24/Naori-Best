@@ -24,7 +24,9 @@ bot.on("new_chat_members", async (ctx) => {
     }
 
     const nombre = user.first_name || "Usuario";
-    await ctx.replyWithPhoto(https://naori-best.vercel.app/welcome.jpg,
+
+    await ctx.replyWithPhoto(
+      "https://naori-best.vercel.app/welcome.jpg",  // <--- URL pública
       {
         caption: `¡Bienvenido/a al grupo, ${nombre}!\nEsperamos que la pases genial.\n\n1. 🚫 Cero CP\nNo se permite enviar, pedir ni compartir contenido de lolis realistas. Quien lo haga recibirá ban temporal o permaban según la falta.\n\n2. 🖼️💥 Sticker Party control\nHasta 20 stickers seguidos está bien; más de eso se vuelve spam y molesta. ¡Usa tus stickers con amor y medida! 😘\n\n3. 📸🐢 Foto-lag cuidado\nEvita subir más de 20 fotos de golpe: uno de nuestros admins sufre de lag y queremos que todos estén al 100%. 😉\n\n4. 🌙🔒 Horarios de apertura\nEl grupo cierra a las 22:00 y vuelve a abrir a las 08:00 (hora México), para que todos podamos descansar bien.\n\n¡Gracias por colaborar y crear un ambiente chévere para todos! 🙌✨`,
         parse_mode: "Markdown"
