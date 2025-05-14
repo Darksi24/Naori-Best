@@ -1,6 +1,4 @@
-const cooldowns = new Map(); // fuera del export para mantener entre llamadas
-const COOLDOWN_TIME = 20000; // en milisegundos (5 segundos por ejemplo)
-const blacklist = [, 1234567, 6262019167]
+const blacklist = [1234567, 6262019167]
 
 module.exports = {
   name: "cum",
