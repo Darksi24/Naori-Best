@@ -86,3 +86,4 @@ bot.on("callback_query", async (ctx) => {
 
 module.exports = bot
 console.log("Bot en marcha.");
+console.log(`Comando cargado: ${cmd.name}`);
