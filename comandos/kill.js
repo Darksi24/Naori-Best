@@ -18,13 +18,13 @@ module.exports = {
         if (reply && reply.from.id === ctx.botInfo.id) {
             return ctx.reply("¿Porque me usarías eso contra mi?");
         }
-        
+
         if (reply && reply.from.id === userId) {
             return ctx.reply("¿Porque te lo harias? es suicidio....")
         }
 
 
-        
+
         await ctx.replyWithAnimation(
             {
                 source: randomGif

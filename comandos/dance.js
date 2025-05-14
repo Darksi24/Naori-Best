@@ -10,7 +10,7 @@ module.exports = {
         const randomGif = gifs[Math.floor(Math.random() * gifs.length)];
 
 
-        
+
         await ctx.replyWithAnimation(
             {
                 source: randomGif

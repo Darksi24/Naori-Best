@@ -18,13 +18,13 @@ module.exports = {
         if (reply && reply.from.id === ctx.botInfo.id) {
             return ctx.reply("¿Porque yo? ni me gusta...");
         }
-        
+
         if (reply && reply.from.id === userId) {
             return ctx.reply("Mejor besa un espejo....")
         }
 
 
-    
+
         await ctx.replyWithAnimation(
             {
                 source: randomGif
