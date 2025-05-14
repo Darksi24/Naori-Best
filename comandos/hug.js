@@ -1,4 +1,4 @@
-const gifs = ["gifs/hug.gif", "gifs/hug2.gif", "gifs/hug3.gif", "gifs/hug4.gif", "gifs/hug5.gif", "gifs/hug6.gif"];
+const gifs = ["https://naori-best.vercel.app/gifs/hug.gif", "https://naori-best.vercel.app/gifs/hug2.gif", "https://naori-best.vercel.app/gifs/hug3.gif", "https://naori-best.vercel.app/gifs/hug4.gif", "https://naori-best.vercel.app/gifs/hug5.gif", "https://naori-best.vercel.app/gifs/hug6.gif"];
 
 
 module.exports = {
@@ -14,7 +14,7 @@ module.exports = {
 
         if (!destinatario) {
             return ctx.reply("Debes responder a un mensaje de alguien.");
-        }
+        }}
 
 
 

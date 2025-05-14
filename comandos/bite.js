@@ -1,4 +1,4 @@
-const gifs = ["gifs/bite.gif", "gifs/bite3.gif", "gifs/bite4.gif", "gifs/bite6.gif", "gifs/bite7.gif"];
+const gifs = ["https://naori-best.vercel.app/gifs/bite.gif", "https://naori-best.vercel.app/gifs/bite2.gif", "https://naori-best.vercel.app/gifs/bite3.gif", "https://naori-best.vercel.app/gifs/bite4.gif", "https://naori-best.vercel.app/gifs/bite5.gif", "https://naori-best.vercel.app/gifs/bite6.gif", "https://naori-best.vercel.app/gifs/bite7.gif"];
 
 
 

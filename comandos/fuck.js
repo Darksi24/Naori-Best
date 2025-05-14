@@ -38,11 +38,11 @@ module.exports = {
 
 
         //random gifs
-        const gifs = ["gifs/fuck.gif",
-            "gifs/fuck2.gif",
-            "gifs/fuck3.gif",
-            "gifs/fuck4.gif",
-            "gifs/fuck5.gif"]; // Agrega los nombres de tus archivos aquí
+        const gifs = ["https://naori-best.vercel.app/gifs/fuck.gif",
+            "https://naori-best.vercel.app/gifs/fuck2.gif",
+            "https://naori-best.vercel.app/gifs/fuck3.gif",
+            "https://naori-best.vercel.app/gifs/fuck4.gif",
+            "https://naori-best.vercel.app/gifs/fuck5.gif"]; // Agrega los nombres de tus archivos aquí
         const randomGif = gifs[Math.floor(Math.random() * gifs.length)];
 
         await ctx.replyWithAnimation(

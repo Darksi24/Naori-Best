@@ -1,4 +1,4 @@
-const gifs = ["gifs/dance.gif", "gifs/dance2.gif", "gifs/dance3.gif", "gifs/dance4.gif", "gifs/dance5.gif", "gifs/dance6.gif", "gifs/dance7.gif"]
+const gifs = ["https://naori-best.vercel.app/gifs/dance.gif", "https://naori-best.vercel.app/gifs/dance2.gif", "https://naori-best.vercel.app/gifs/dance3.gif", "https://naori-best.vercel.app/gifs/dance4.gif", "https://naori-best.vercel.app/gifs/dance5.gif", "https://naori-best.vercel.app/gifs/dance6.gif", "https://naori-best.vercel.app/gifs/dance7.gif"];
 
 
 module.exports = {
