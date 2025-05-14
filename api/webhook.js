@@ -1,14 +1,17 @@
+// api/webhook.js
 const bot = require("../telegram");
 
-module.exports = async (req, res) => {
+module.exports = async function handler(req, res) {
+  if (req.method !== "POST") {
+    return res.status(405).send("Use POST");
+  }
+
   try {
-    console.log("Update recibido:", req.body);  // <-- Agrega esto para verificar
+    console.log("Update recibido:", JSON.stringify(req.body).slice(0, 200)); // log parcial
     await bot.handleUpdate(req.body);
-    res.status(200).send("OK");
+    return res.status(200).send("OK");
   } catch (err) {
     console.error("Error en webhook:", err);
-    res.status(500).send("Error en webhook");
+    return res.status(500).send("Error interno");
   }
 };
-
-console.log("BODY:", JSON.stringify(req.body, null, 2));
