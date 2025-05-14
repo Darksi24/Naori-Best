@@ -10,7 +10,7 @@ app.post('/webhook', (req, res) => {
 
 app.get('/', async (req, res) => {
   // Solo se ejecuta una vez cuando se accede
-  const webhookUrl = 'https://TU_PROYECTO.vercel.app/webhook';
+  const webhookUrl = 'https://naori-best.vercel.app/webhook';
   try {
     await bot.telegram.setWebhook(webhookUrl);
     res.send('Bot activo y webhook configurado.');
