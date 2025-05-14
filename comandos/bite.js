@@ -1,4 +1,4 @@
-const gifs = ["gifs/bite.gif", "gifs/bite2.gif", "gifs/bite3.gif", "gifs/bite4.gif", "gifs/bite5.gif", "gifs/bite6.gif", "gifs/bite7.gif"];
+const gifs = ["gifs/bite.gif", "gifs/bite2.gif", "gifs/bite3.gif", "gifs/bite4.gif", "gifs/bite6.gif", "gifs/bite7.gif"];
 
 
 
