@@ -1,4 +1,4 @@
-const gifs = ["gifs/hug.gif", "gifs/hug2.gif", "gifs/hug3.gif", "gifs/hug4.gif", "gifs/hug5.gif", "gifs/hug6.gif"]
+const gifs = ["gifs/hug.gif", "gifs/hug2.gif", "gifs/hug3.gif", "gifs/hug4.gif", "gifs/hug5.gif", "gifs/hug6.gif"];
 
 
 module.exports = {
