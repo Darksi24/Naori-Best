@@ -24,10 +24,7 @@ module.exports = {
         const userId = ctx.from.id;
 
 
-        await ctx.replyWithAnimation(
-            {
-                source: randomGif
-            },
+        await ctx.replyWithAnimation(randomGif,
             {
                 caption: `*${autor}* mordió a *${destinatario}*`,
                 parse_mode: "Markdown"

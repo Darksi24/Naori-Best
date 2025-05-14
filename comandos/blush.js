@@ -11,10 +11,7 @@ module.exports = {
 
 
 
-        await ctx.replyWithAnimation(
-            {
-                source: randomGif
-            },
+        await ctx.replyWithAnimation(randomGif,
             {
                 caption: `*${autor}* se sonrojó 0////0`,
                 parse_mode: "Markdown"

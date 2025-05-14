@@ -22,10 +22,7 @@ module.exports = {
 
         const randomGif = gifs[Math.floor(Math.random() * gifs.length)];
 
-        await ctx.replyWithAnimation(
-            {
-                source: randomGif
-            },
+        await ctx.replyWithAnimation(randomGif,
             {
                 caption: `*${autor}* le dio un besito a *${destinatario}*`,
                 parse_mode: "Markdown"

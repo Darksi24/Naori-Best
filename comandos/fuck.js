@@ -45,10 +45,7 @@ module.exports = {
             "https://naori-best.vercel.app/gifs/fuck5.gif"]; // Agrega los nombres de tus archivos aquí
         const randomGif = gifs[Math.floor(Math.random() * gifs.length)];
 
-        await ctx.replyWithAnimation(
-            {
-                source: randomGif
-            },
+        await ctx.replyWithAnimation(randomGif,
             {
                 caption: `*${autor}* se detonó a *${destinatario}*`,
                 parse_mode: "Markdown"
