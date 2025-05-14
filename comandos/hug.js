@@ -1,5 +1,3 @@
-const cooldowns = new Map(); // fuera del export para mantener entre llamadas
-const COOLDOWN_TIME = 5000; // en milisegundos (5 segundos por ejemplo)
 const gifs = ["gifs/hug.gif", "gifs/hug2.gif", "gifs/hug3.gif", "gifs/hug4.gif", "gifs/hug5.gif", "gifs/hug6.gif"]
 
 
