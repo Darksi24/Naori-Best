@@ -1,5 +1,6 @@
 const { Telegraf } = require("telegraf");
 const fs = require("fs");
+const path = require("path");
 
 // Reemplaza con tu token real
 const bot = new Telegraf("7442347920:AAG7dHEtlVrqHEq-SJaPo8qsWilJbmsk7aM");
