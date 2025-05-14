@@ -7,6 +7,7 @@ module.exports = async function handler(req, res) {
     return res.status(405).send("Usa POST");
   }
   try {
+    console.log("Update recibido:", JSON.stringify(req.body).slice(0,200));
     await bot.handleUpdate(req.body);
     return res.status(200).send("OK");
   } catch (err) {
