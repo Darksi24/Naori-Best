@@ -1,4 +1,4 @@
-const bot = require("../../telegram");
+const bot = require("../telegram");
 
 module.exports = async (req, res) => {
   try {
