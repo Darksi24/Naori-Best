@@ -11,10 +11,6 @@ module.exports = {
 
 
         
-        const now = Date.now();}
-
-        cooldowns.set(userId, now + COOLDOWN_TIME)
-
         await ctx.replyWithAnimation(
             {
                 source: randomGif

@@ -22,7 +22,6 @@ module.exports = {
 
 
 	const userId = ctx.from.id;
-	const now = Date.now();}
 
 
 	await ctx.replyWithAnimation(
@@ -33,7 +32,6 @@ module.exports = {
 	  }
 	);
 	
-	cooldowns.set(userId, now + COOLDOWN_TIME)
 
     
   }

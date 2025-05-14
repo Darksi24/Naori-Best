@@ -6,7 +6,6 @@ module.exports = {
      //cooldown
 
      const userId = ctx.from.id;
-     const now = Date.now();}
      const autor = ctx.from.first_name;
 
      if (blacklist.includes(userId)) {

@@ -5,7 +5,6 @@ module.exports = {
   execute: async (ctx) => {
     //cooldown
     const userId = ctx.from.id;
-	const now = Date.now();}
 
 
 	//auto slap bot

@@ -7,7 +7,6 @@ module.exports = {
     const reply = ctx.message.reply_to_message;
     const destinatario = reply ? reply.from.first_name : null;
     const userId = ctx.from.id;
-    const now = Date.now();
 
     if (!destinatario) {
       return ctx.reply("Debes responder a un mensaje de alguien.");
@@ -20,9 +19,6 @@ module.exports = {
 
 	//cooldown}
 	
-	cooldowns.set(userId, now + COOLDOWN_TIME)
-
-
 
 	const randomGif = gifs[Math.floor(Math.random() * gifs.length)];
 

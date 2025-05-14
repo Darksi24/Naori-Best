@@ -9,7 +9,6 @@ module.exports = {
    //cooldown
 
    const userId = ctx.from.id;
-   const now = Date.now();}
    if (blacklist.includes(userId)) {
    	return ctx.replyWithMarkdown(`*${autor}* no mas chaquetas para ti, \nBLACKLIST`)
    }
