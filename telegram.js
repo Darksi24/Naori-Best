@@ -77,3 +77,5 @@ bot.on("callback_query", async (ctx) => {
 });
 
 module.exports = bot;
+bot.launch();
+console.log("bot iniciado");
