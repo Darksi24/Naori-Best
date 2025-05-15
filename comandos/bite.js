@@ -22,15 +22,14 @@ module.exports = {
 
 
         const userId = ctx.from.id;
-        
+
         const count = ctx.state.interactionCount;
 
 
-        await ctx.replyWithAnimation(randomGif,
-        caption: `*${autor}* mordió a *${destinatario}*, mordidas dadas #${count}`,
-                parse_mode: "Markdown"
-            
-        );
+        await ctx.replyWithAnimation(randomGif, {
+            caption: `*${autor}* mordió a *${destinatario}*, mordidas dadas #${count}`,
+            parse_mode: "Markdown"
+        });
 
 
 
