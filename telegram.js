@@ -15,6 +15,34 @@ fs.readdirSync(comandosPath).forEach(file => {
 });
 
 
+
+const { registrarInteraccion } = require("./utils/interacciones");
+
+// ... cuando cargas cada comando:
+bot.command(cmd.name, async (ctx) => {
+  // Si el comando espera respuesta a un mensaje:
+  const reply = ctx.message.reply_to_message;
+  if (reply) {
+    const count = registrarInteraccion(
+      cmd.name,
+      String(ctx.from.id),
+      String(reply.from.id)
+    );
+    // Puedes almacenar `count` en ctx.state si quieres
+    ctx.state.interactionCount = count;
+  }
+
+  // Ejecución original del comando:
+  try {
+    await cmd.execute(ctx);
+  } catch (err) {
+    console.error(err);
+    ctx.reply("Error ejecutando comando.");
+  }
+});
+
+
+
 // Evento: cuando alguien se une al grupo
 bot.on("new_chat_members", async (ctx) => {
   for (const user of ctx.message.new_chat_members) {
