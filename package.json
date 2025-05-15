@@ -1,9 +1,9 @@
 {
   "name": "tg",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "telegram.js",
   "scripts": {
-    "start": "node index.js"
+    "start": "node telegram.js"
   },
   "keywords": [],
   "author": "",
