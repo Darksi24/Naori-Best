@@ -26,9 +26,10 @@ module.exports = {
         const count = ctx.state.interactionCount;
 
 
-        await ctx.replyWithAnimation(randomGif,                caption: `*${autor}* mordió a *${destinatario}*, mordidas dadas #${count}`,
+        await ctx.replyWithAnimation(randomGif,
+        caption: `*${autor}* mordió a *${destinatario}*, mordidas dadas #${count}`,
                 parse_mode: "Markdown"
-            }
+            
         );
 
 
