@@ -18,13 +18,15 @@ module.exports = {
 
 
         //cooldown}
+        
+        const count = ctx.state.interactionCount;
 
 
         const randomGif = gifs[Math.floor(Math.random() * gifs.length)];
 
         await ctx.replyWithAnimation(randomGif,
             {
-                caption: `*${autor}* le dio un besito a *${destinatario}*`,
+                caption: `*${autor}* le dio un besito a *${destinatario}*, besos dados #${count}`,
                 parse_mode: "Markdown"
             }
         );

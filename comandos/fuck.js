@@ -1,8 +1,14 @@
 const blacklist = [7978613098, 123466]
+const { getNSFW } = require("../utils/config");
 
 module.exports = {
     name: "fuck",
     execute: async (ctx) => {
+        
+        if (!getNSFW()) {
+      return ctx.reply("Este comando está desactivado porque el modo NSFW está apagado.");
+    }
+    
         //cooldown
 
         const userId = ctx.from.id;

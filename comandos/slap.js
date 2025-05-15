@@ -31,12 +31,14 @@ module.exports = {
 
 
         const randomGif = gif[Math.floor(Math.random() * gif.length)];
+        
+        const count = ctx.state.interactionCount;
 
 
 
         await ctx.replyWithAnimation(randomGif,
             {
-                caption: `¡*${name}* le dio una cachetada a *${destinatario}*!`,
+                caption: `¡*${name}* le dio una cachetada a *${destinatario}*!, cachetadas dadas #${count}`,
                 parse_mode: "Markdown"
             });
     }

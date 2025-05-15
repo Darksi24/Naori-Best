@@ -22,12 +22,14 @@ module.exports = {
         if (reply && reply.from.id === userId) {
             return ctx.reply("Mejor besa un espejo....")
         }
+        
+        const count = ctx.state.interactionCount;
 
 
 
         await ctx.replyWithAnimation(randomGif,
             {
-                caption: `*${autor}* lamió a *${destinatario}*`,
+                caption: `*${autor}* lamió a *${destinatario}*, lamidas dadas #${count}`,
                 parse_mode: "Markdown"
             }
         );

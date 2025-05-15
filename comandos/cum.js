@@ -1,10 +1,18 @@
 const blacklist = [, 1234567, 6262019167]
+const {
+    getNSFW
+} = require("../utils/config");
+
 
 module.exports = {
     name: "cum",
     execute: async (ctx) => {
 
         const autor = ctx.from.first_name;
+        if (!getNSFW()) {
+            return ctx.reply("Este comando está desactivado porque el modo NSFW está apagado.");
+        }
+
 
         //cooldown
 
@@ -41,8 +49,8 @@ module.exports = {
 
 
         //random gifs
-        const gifs = ["gifs/cum.gif",
-            "gifs/cum2.gif"]; // Agrega los nombres de tus archivos aquí
+        const gifs = ["https://naori-best.vercel.app/gifs/cum.gif",
+            "https://naori-best.vercel.app/gifs/cum2.gif"]; // Agrega los nombres de tus archivos aquí
         const randomGif = gifs[Math.floor(Math.random() * gifs.length)];
 
         await ctx.replyWithAnimation(randomGif,

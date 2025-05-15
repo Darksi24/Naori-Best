@@ -13,9 +13,11 @@ module.exports = {
         if (!destinatario) {
             return ctx.reply("Debes responder a un mensaje de alguien.");
         }
+        
+        const count = ctx.state.interactionCount;
 
         await ctx.replyWithAnimation(randomGif, {
-            caption: `*${autor}* le dio un abrazito a *${destinatario}*`,
+            caption: `*${autor}* le dio un abrazito a *${destinatario}*, abrazos dados #${count}`,
             parse_mode: "Markdown"
         });
     }
