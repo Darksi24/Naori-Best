@@ -11,6 +11,8 @@ const {
     registrarInteraccion
 } = require("./utils/interacciones");
 
+const comandosPath = path.join(__dirname, "comandos");
+
 fs.readdirSync(comandosPath).forEach(file => {
     const cmd = require(path.join(comandosPath, file));
 
