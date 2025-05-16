@@ -13,7 +13,7 @@ module.exports = {
         const mention = args[1];
 
         if (!mention || !mention.startsWith("@")) {
-            return ctx.reply("Usa /divorciar @usuario (debes mencionar con @)");
+            return ctx.reply("Usa /divorciar [@user]");
         }
 
         const from = ctx.from;
