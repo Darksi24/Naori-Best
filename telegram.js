@@ -144,5 +144,20 @@ bot.on("callback_query", async (ctx) => {
 });
 
 
+/////////// Commands Admin
+
+bot.command('gp', async (ctx) => {
+  if (ctx.from.id !== 6262019167) return
+
+  for (const id of grupos) {
+    try {
+      const chat = await ctx.telegram.getChat(id)
+      ctx.reply(`Grupo: ${chat.title} (ID: ${chat.id})`)
+    } catch (err) {
+      ctx.reply(`Error al obtener grupo con ID ${id}: ${err.description}`)
+    }
+  }
+})
+
 bot.launch();
 console.log("bot iniciado");
