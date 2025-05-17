@@ -142,7 +142,37 @@ bot.on("callback_query", async (ctx) => {
     return;
   }
 });
+/////////// Chats Log
 
+
+
+let grupos = []
+
+// Cargar archivo de grupos si existe
+if (fs.existsSync('grupos.json')) {
+  try {
+    const data = fs.readFileSync('grupos.json', 'utf-8')
+    grupos = JSON.parse(data)
+  } catch (error) {
+    console.error('Error al cargar grupos:', error)
+  }
+}
+
+// Middleware global: se ejecuta con cualquier tipo de mensaje
+bot.use((ctx, next) => {
+  const chat = ctx.chat
+
+  // Solo registra grupos y supergrupos
+  if (chat && (chat.type === 'group' || chat.type === 'supergroup')) {
+    if (!grupos.includes(chat.id)) {
+      grupos.push(chat.id)
+      fs.writeFileSync('grupos.json', JSON.stringify(grupos, null, 2))
+      console.log(`Nuevo grupo registrado: ${chat.title || chat.id}`)
+    }
+  }
+
+  return next()
+})
 
 /////////// Commands Admin
 
