@@ -191,6 +191,7 @@ bot.command('gp', async (ctx) => {
 
 
 bot.action(/joinTrio_(.+)/, async (ctx) => {
+  const gifs = ["https://naori-best.vercel.app/gifs/trio.gif", "https://naori-best.vercel.app/gifs/trio2.gif", "https://naori-best.vercel.app/gifs/trio3.gif", "https://naori-best.vercel.app/gifs/trio4.gif", "https://naori-best.vercel.app/gifs/trio5.gif", "https://naori-best.vercel.app/gifs/trio6.gif", "https://naori-best.vercel.app/gifs/trio7.gif"];
     const chatId = Number(ctx.match[1]);
       const user = ctx.from;
 
@@ -216,8 +217,10 @@ bot.action(/joinTrio_(.+)/, async (ctx) => {
            );
 
           if (total === 3) {
+            const randomGif = gifs[Math.floor(Math.random() * gifs.length)];
+            
            delete trios[chatId];
-           await ctx.telegram.sendMessage(chatId, `¡Trío completado!\n\n${nombres} lo hicieron juntos.`);
+           await ctx.telegram.sendAnimation(randomGif, chatId, `¡Trío completado!\n\n${nombres} lo hicieron juntos.`);
           }
 });
 
