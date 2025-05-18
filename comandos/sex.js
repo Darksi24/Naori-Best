@@ -54,7 +54,7 @@ module.exports = {
               //creamos el trio
 
               trios[chatId] = {
-                miembros: [initiator],
+                miembros: [initiatior],
               };
 
               //ahora enviamos la propuesta al chat
