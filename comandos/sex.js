@@ -49,7 +49,7 @@ module.exports = {
             if (modo === "trio") {
               // obtenemos el id del chat
               const chatId = ctx.chat.id;
-              const initiator = ctx.from;
+              const initiatior = ctx.from;
 
               //creamos el trio
 
