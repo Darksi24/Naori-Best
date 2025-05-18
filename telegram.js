@@ -210,7 +210,7 @@ bot.action(/joinTrio_(.+)/, async (ctx) => {
               parse_mode: "Markdown",
               reply_markup: total < 3
                ? Markup.inlineKeyboard([
-              Markup.button.callback("✅ Unirme", `joinTrio_${chatId}`)
+              Markup.button.callback("Unirme", `joinTrio_${chatId}`)
                                     ])
                                   : undefined
             }
@@ -220,7 +220,7 @@ bot.action(/joinTrio_(.+)/, async (ctx) => {
             const randomGif = gifs[Math.floor(Math.random() * gifs.length)];
             
            delete trios[chatId];
-           await ctx.telegram.sendAnimation(randomGif, chatId, `¡Trío completado!\n\n${nombres} lo hicieron juntos.`);
+           await ctx.telegram.sendAnimation(chatId, randomGif, `¡Trío completado!\n\n${nombres} lo hicieron juntos.`);
           }
 });
 
