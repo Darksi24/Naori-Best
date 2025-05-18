@@ -1,7 +1,7 @@
 const { Markup } = require("telegraf")
 const gifs = ["https://naori-best.vercel.app/gifs/sexd.gif", "https://naori-best.vercel.app/gifs/sexd2.gif", "https://naori-best.vercel.app/gifs/sexd3.gif", "https://naori-best.vercel.app/gifs/sexd4.gif", "https://naori-best.vercel.app/gifs/sexd5.gif", "https://naori-best.vercel.app/gifs/sexd6.gif", "https://naori-best.vercel.app/gifs/sexd7.gif"];
 
-const trios = {};
+const trios = require("../utils/trios");
 
 module.exports = {
       name: "sex",

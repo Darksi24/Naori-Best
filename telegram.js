@@ -10,6 +10,7 @@ const bot = new Telegraf("7442347920:AAG7dHEtlVrqHEq-SJaPo8qsWilJbmsk7aM");
 const {
     registrarInteraccion
 } = require("./utils/interacciones");
+const trios = require("./utils/trios"); // o "./utils/trios"
 
 const comandosPath = path.join(__dirname, "comandos");
 
