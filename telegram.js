@@ -189,5 +189,37 @@ bot.command('gp', async (ctx) => {
   }
 })
 
+
+bot.action(/joinTrio_(.+)/, async (ctx) => {
+    const chatId = Number(ctx.match[1]);
+      const user = ctx.from;
+
+        if (!trios[chatId]) return ctx.answerCbQuery("Este trío ya se cerró o no existe.");
+
+          const trio = trios[chatId];
+          const yaUnido = trio.miembros.find(u => u.id === user.id);
+          if (yaUnido) return ctx.answerCbQuery("Ya estás en este trío.");
+
+          trio.miembros.push(user);
+          const total = trio.miembros.length;
+          const nombres = trio.miembros.map(u => u.first_name).join(", ");
+
+          await ctx.editMessageText(`¡Se está formando un trío!\n\nMiembros: ${total}/3\n${nombres}`,
+            {
+              parse_mode: "Markdown",
+              reply_markup: total < 3
+               ? Markup.inlineKeyboard([
+              Markup.button.callback("✅ Unirme", `joinTrio_${chatId}`)
+                                    ])
+                                  : undefined
+            }
+           );
+
+          if (total === 3) {
+           delete trios[chatId];
+           await ctx.telegram.sendMessage(chatId, `¡Trío completado!\n\n${nombres} lo hicieron juntos.`);
+          }
+});
+
 bot.launch();
 console.log("bot iniciado");
