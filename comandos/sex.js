@@ -63,7 +63,7 @@ module.exports = {
                 {
                   parse_mode: "Markdown",
                   reply_markup: Markup.inlineKeyboard([
-                    Markup.button.callback("✅ Unirte", `joinTrio_${chatId}`)
+                    Markup.button.callback("Unirte", `joinTrio_${chatId}`)
                   ])
                 }
               );
