@@ -1,0 +1,51 @@
+        const fs = require('fs')
+        const path = require('./warn.json')
+
+        let warns = {}
+
+        if (fs.existsSync(path)) {
+            try {
+                warns = JSON.parse(fs.readFileSync(path, 'utf-8'))
+            } catch (e) {
+                console.error('error de lectura', e)
+                warns = {}
+
+            }
+        }
+
+        function guardar() {
+            fs.writeFileSync(path, JSON.stringify(puntos, null, 2))
+        }
+
+        function sumarWarns() {
+            const id = user.id.toString()
+            const nombre = user.first_name || 'user'
+
+            if (!warns[id]) {
+                warns[id] = {
+                    nombre: nombre,
+                    total: 0
+                }
+            }
+
+            warns[id].total += 1
+            guardar()
+            return warns[id].total
+        }
+
+        function getWarn(user) {
+            const id = user.id.toString()
+            return warns[id]?.total || 0
+        }
+
+        function getName(user) {
+            const id = user.id.toString()
+            return puntos[id]?.nombre || user.first_name || 'Usuario'
+        }
+
+        module.exports = {
+            sumarWarns,
+            getWarn,
+            getName
+        }
+        

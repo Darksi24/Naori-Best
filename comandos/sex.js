@@ -36,7 +36,7 @@ module.exports = {
               const nombre2 = reply.from.first_name;
 
               // ahora enviamos el mensaje 
-              ctx.replyWithAnimation(randomGif, 
+              return ctx.replyWithAnimation(randomGif, 
                 {
                   caption: `*${nombre1}* y *${nombre2}* se dieron amor mutuamente `,
                   parse_mode: "Markdown"
@@ -59,14 +59,22 @@ module.exports = {
 
               //ahora enviamos la propuesta al chat
 
-              const msg = await ctx.reply(`*${initiatior.first_name}* quiere iniciar un trio.\n\nMiembros: 1/3`,
-                {
-                  parse_mode: "Markdown",
-                  reply_markup: Markup.inlineKeyboard([
-                    Markup.button.callback("Unirte", `joinTrio_${chatId}`)
-                  ])
-                }
-              );
+              // ... dentro de tu comando /sex (modo "trio"):
+              // ... dentro de tu comando /sex (modo "trio"):
+
+              const msg = await ctx.reply(
+                `*${initiatior.first_name}* quiere iniciar un trío.\n\nMiembros: 1/3`,
+                  {
+                      parse_mode: "Markdown",
+                          reply_markup: {
+                                inline_keyboard: [
+                                        [
+                                                  { text: "Unirme", callback_data: `joinTrio_${chatId}` }
+                                                          ]
+                                                                ]
+                                                                    }
+                                                                      }
+                                                                      );
               trios[chatId].mensajeId = msg.message_id;  
                             
                             

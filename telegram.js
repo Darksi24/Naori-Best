@@ -196,32 +196,48 @@ bot.action(/joinTrio_(.+)/, async (ctx) => {
 
         if (!trios[chatId]) return ctx.answerCbQuery("Este trío ya se cerró o no existe.");
 
-          const trio = trios[chatId];
-          const yaUnido = trio.miembros.find(u => u.id === user.id);
-          if (yaUnido) return ctx.answerCbQuery("Ya estás en este trío.");
+          const grupo = trios[chatId];
+          if (grupo.miembros.find(u => u.id === user.id)) {
+            return ctx.answerCbQuery("Ya estás en este trío.");
+          }
 
-          trio.miembros.push(user);
-          const total = trio.miembros.length;
-          const nombres = trio.miembros.map(u => u.first_name).join(", ");
+          grupo.miembros.push(user);
+          const total = grupo.miembros.length;
+          const nombres = grupo.miembros.map(u => u.first_name).join(", ");
 
-          await ctx.editMessageText(`¡Se está formando un trío!\n\nMiembros: ${total}/3\n${nombres}`,
-            {
-              parse_mode: "Markdown",
-              reply_markup: total < 3
-               ? Markup.inlineKeyboard([
-              Markup.button.callback("Unirme", `joinTrio_${chatId}`)
-                                    ])
-                                  : undefined
-            }
-           );
+                          // Editamos el mismo mensaje para mostrar cuántos se unieron
+          await ctx.editMessageText(
+            `¡Se está formando un trío!\n\nMiembros: ${total}/3\n${nombres}`,
+              {
+                parse_mode: "Markdown",
+              // Si aún no son 3, dejamos el botón activo:
+                reply_markup: total < 3
+                  ? {
+                inline_keyboard: [
+                  [{ text: "Unirme", callback_data: `joinTrio_${chatId}` }]
+                ]
+                    }
+                    : undefined
+              }
+          );
 
           if (total === 3) {
-            const randomGif = gifs[Math.floor(Math.random() * gifs.length)];
-            
-           delete trios[chatId];
-           await ctx.telegram.sendAnimation(chatId, randomGif, `¡Trío completado!\n\n${nombres} lo hicieron juntos.`);
-          }
+              const randomGif = gifs[Math.floor(Math.random() * gifs.length)];
+
+                delete trios[chatId];
+
+                  await ctx.telegram.sendAnimation(chatId, randomGif, {
+                      caption: `¡Trío completado!\n\n${nombres} lo hicieron juntos.`,
+                          parse_mode: "Markdown"
+                            });
+                            }
+          
+
+
 });
+
+bot.action("boton_prueba",
+   ctx => ctx.reply("¡Botón confirmado!"));
 
 bot.launch();
 console.log("bot iniciado");
